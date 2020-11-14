@@ -11,7 +11,7 @@
 9. ... 을 클릭해서 push를 한다
 10. 끝
 11. github들어가서 원격저장소에서 pull request를 들어간다
-12. compare & pull request를 클릭한다
+12. new pull request를 클릭한다
 12. 상단의 콤보박스를 matser <- "자기가 작업한 분기"를 선택한다
 13. 작업한 제목과 내용을 입력하고 create pull request를 클릭한다
 14. 끝
