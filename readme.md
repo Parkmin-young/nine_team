@@ -1,4 +1,49 @@
-# 깃 사용법
+
+## 1. 프로젝트 구성
+- data
+    - train
+        - knu
+        - none-knu
+    - test
+        - knu
+        - none-knu
+- src
+    - core
+        - dataAdapter.py
+        - network.py
+        - model @Nullable
+    - tool
+        - train.py
+        - predict.py
+
+## 2. 요구 사항
+
+### 2.1. dataAdapter.py
+1. 사진 파일들을 읽는다.
+2. 전처리를 한다
+    1. 사이즈가 동일하다
+    2. 컬러 스케일이 0~1 실수다
+3. `train_X, train_y, test_x, test_y = loadMemory()`를 제공한다
+
+### 2.2. network.py
+1. 모델을 생성한다.
+    1. 만약 학습된 파일이 없는 경우 새롭게 만든다
+    2. 만약 학습된 파일이 있는 경우 불러온다.
+2. 모델을 저장한다
+3. `model = loadModel()`을 제공한다.
+4. `saveModel(model: tensorflow.keras.Model)`을 제공한다.
+
+### 2.3. train.py
+1. 학습을 한다.
+2. src/core/* 패키지의 요소를 사용한다.
+3. 학습을 완료후 모델을 저장한다.
+
+### 2.4. predict.py
+1. 지정된 이미지를 예측한다.
+2. src/core/* 패키지의 요소를 사용한다.
+
+
+## 3. 깃 사용법
 
 1. vscode  왼쪽 하단의 삼각형(현 분기 이름)을 클릭한다
 2. create branch를 클릭한다
