@@ -2,9 +2,8 @@ import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
 import src.core.dataAdapter as adapter
 import src.core.network as net
-# import sys
-# sys.path.append("..")
-# import core.dataAdapter
+# 데이터 셔플이 필요시 주석 제거
+#import src.tool.fileclassification as fileclass
 
 
 model = net.loadModel()
