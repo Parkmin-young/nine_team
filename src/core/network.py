@@ -21,9 +21,10 @@ def loadModel():
         model.add(tf.keras.layers.Conv2D(filters=10, kernel_size=(3, 3), activation="relu"))
         model.add(tf.keras.layers.Conv2D(filters=20, kernel_size=(3, 3), activation="relu"))
         model.add(tf.keras.layers.Conv2D(filters=30, kernel_size=(3, 3), activation="relu"))
-        model.add(tf.keras.layers.Dense(2, activation="softmax"))
+        model.add(tf.keras.layers.Flatten())
+        model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
         model.build((1,512,512,3))
-        model.compile(optimizer="adam", loss="CategoricalCrossentropy")
+        model.compile(optimizer="adam", loss="binary_crossentropy")
     
     return model
 
