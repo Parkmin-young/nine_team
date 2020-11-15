@@ -9,12 +9,12 @@ PATH_IMGS = PATH + "/../../data"
 def __loadFromDir(path: str):
     arrays = []
     for fileName in os.listdir(PATH_IMGS + "/" + path):
-        if fileName == "readme.md":
+        if fileName == "readme.md" or fileName.startswith(".") or fileName.endswith(".png"):
             continue
+        print(fileName)
         array = pilimg.open(PATH_IMGS + "/" + path + "/" + fileName)
         array = array.resize((512,512))
         array = np.array(array)
-
         #  ARRAY 전처리
         arrays.append(array)
 
