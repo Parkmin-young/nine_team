@@ -7,6 +7,9 @@
     - test
         - knu
         - none-knu
+    - original
+        - knu
+        - none-knu
 - src
     - core
         - dataAdapter.py
@@ -15,6 +18,7 @@
     - tool
         - train.py
         - predict.py
+        - fileclassification.py
 
 ## 2. 요구 사항
 
@@ -42,6 +46,8 @@
 1. 지정된 이미지를 예측한다.
 2. src/core/* 패키지의 요소를 사용한다.
 
+### 2.5. fileclassification.py
+1. orignal 폴더내의 이미지 중 랜덤한 이미지 75%를 train에 25%는 test로 복사한다.
 
 ## 3. 깃 사용법
 
