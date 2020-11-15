@@ -12,14 +12,9 @@ SAVED_MODEL_PATH = os.path.dirname(__file__)+ "/model" # 경로 중 디렉토리
 def loadModel():
     # 반환값 정의
     model : tf.keras.Model
-
-    isExistModel = True # 모델 여부 확인
-    
-    if isExistModel:
-        # TODO 모델이 있는 경우
-        model = tf.keras.models.load_model(SAVED_MODEL_PATH) # 경로 SAVED_MODEL_PATH 에서 model load
-
-    else:
+    try:
+        model = tf.keras.models.load_model(SAVED_MODEL_PATH)
+    except Exception as identifier:
         # TODO 모델이 없는 경우
         model = tf.keras.Sequential()
         model.add(tf.keras.layers.Conv2D(filters=5, kernel_size=(3, 3), activation="relu"))
@@ -29,6 +24,7 @@ def loadModel():
         model.add(tf.keras.layers.Dense(2, activation="softmax"))
         model.build((1,512,512,3))
         model.compile(optimizer="adam", loss="CategoricalCrossentropy")
+    
     return model
 
 def saveModel(model: tf.keras.Model): # 모델 저장
