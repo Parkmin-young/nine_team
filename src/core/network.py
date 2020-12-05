@@ -24,7 +24,7 @@ def loadModel():
         model.add(tf.keras.layers.Flatten())
         model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
         model.build((1,512,512,3))
-        model.compile(optimizer="adam", loss="binary_crossentropy")
+        model.compile(optimizer="RMSprop", loss="binary_crossentropy")
     
     return model
 

@@ -11,7 +11,7 @@ def __loadFromDir(path: str):
     for fileName in os.listdir(PATH_IMGS + "/" + path):
         if fileName == "readme.md" or fileName.startswith(".") or fileName.endswith(".png"):
             continue
-        print(fileName)
+        # print(fileName)
         array = pilimg.open(PATH_IMGS + "/" + path + "/" + fileName)
         array = array.resize((512,512))
         array = np.array(array)
@@ -38,9 +38,21 @@ def loadMemory():
     test_x = np.concatenate([test_knu, test_none_knu])
     test_y = np.concatenate([np.ones(test_knu.shape[0]), np.zeros(test_none_knu.shape[0])])
 
-    return (train_x, train_y, test_x, test_y)
+    test_file_names = []
+    for fileName in os.listdir(PATH_IMGS + "/test/knu"):
+        if fileName == "readme.md" or fileName.startswith(".") or fileName.endswith(".png"):
+            continue
+        test_file_names.append(fileName)
+
+    for fileName in os.listdir(PATH_IMGS + "/test/none-knu"):
+        if fileName == "readme.md" or fileName.startswith(".") or fileName.endswith(".png"):
+            continue
+        test_file_names.append(fileName)
+
+
+    return (train_x, train_y, test_x, test_y, test_file_names)
 
 
 if __name__ == "__main__":
-    tx, ty, x, y = loadMemory()
+    tx, ty, x, y, z = loadMemory()
     print(tx.shape)
